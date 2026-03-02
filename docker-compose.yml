@@ -4,7 +4,7 @@ services:
 
   mysql:
     image: mysql:8
-    container_name: mysql_student
+    #container_name: mysql_student
     environment:
       MYSQL_ROOT_PASSWORD: Root@1234
       MYSQL_DATABASE: studentdb
@@ -15,7 +15,7 @@ services:
 
   app:
     build: .
-    container_name: student_app
+    #container_name: student_app
     ports:
       - "8081:8080"
     depends_on:
