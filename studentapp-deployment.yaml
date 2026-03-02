@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: studentapp-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: studentapp
+  template:
+    metadata:
+      labels:
+        app: studentapp
+    spec:
+      containers:
+        - name: studentapp
+          image: vikasotageri/studentapp:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_URL
+              value: jdbc:mysql://mysql-service:3306/studentdb
+            - name: DB_USER
+              value: root
+            - name: DB_PASS
+              value: Root@1234
